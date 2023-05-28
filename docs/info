@@ -1,0 +1,42 @@
+What: 
+
+* .app files are the application files for my web server.
+* It defines the application name and the executable that should be run.
+
+Syntax:
+
+* NewLine is CR
+
+* Comments are written with # in the beginning.
+
+* From the first # to the first NewLine is treated as Comment.
+
+* Each application has a 'Name:' and a 'App:' field. The semicolon must
+  be there.
+
+* The value of these fields cannot have any of the 
+  following charrecters:
+  -Space
+  -Tab
+  -NewLine
+  
+* From the first whitespace, till a NewLine, is be treated as Garbage, 
+  and thus skipped.
+  
+* Because we treat a space, and everything following that in the same 
+  line as "garbage", comments can also be written with just a
+  space separating the "meaning" data from the comment.
+  
+  However in the future version, when we accept spaces, then this rule 
+  will break. Therefore, for compatability with the future versions, 
+  we must use # before a comment, and not a whitespace.
+  
+Example:
+
+    #Application 1
+    Name:webapp
+    App:~/http/apps/hello.out #demo app that just outputs test.
+    
+    #Application 2
+    Name:webapp
+    App:~/http/apps/hello.out TEXT AFTER THE FIRST SPACE IS TREATED AS COMMENT IN THE FIRST VERSION.    

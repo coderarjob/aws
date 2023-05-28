@@ -1,0 +1,49 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APPFILE	ChildMain.c	14;"	d	file:
+AddGeneralHeaders	response.c	/^void AddGeneralHeaders(struct linkedlist *headers)$/;"	f
+FALSE	response.c	10;"	d	file:
+GetApplicationFromName	ChildMain.c	/^static struct app *GetApplicationFromName(char *app)$/;"	f	file:
+GetFileName	ChildMain.c	/^static void GetFileName(const char *page, char *filename, int length)$/;"	f	file:
+GetFileSize	response.c	/^long GetFileSize(char *file)$/;"	f
+GetReasonPhrase	response.c	/^struct HttpCode *GetReasonPhrase(int code)$/;"	f
+HandlePostRequest	post.c	/^void HandlePostRequest()$/;"	f
+HttpCodes	response.c	/^struct HttpCode HttpCodes[] = {$/;"	v	typeref:struct:HttpCode
+IsFilePresent	response.c	/^unsigned int IsFilePresent(char *file) $/;"	f
+IsTimeQuantumExpired	timequantum.c	/^unsigned int IsTimeQuantumExpired()$/;"	f
+LISTEN_PORT	main.c	21;"	d	file:
+ReadRequest	transfer.c	/^void ReadRequest(int socketToRead, struct linkedlist *request_header, $/;"	f
+ReadResponse	transfer.c	/^void ReadResponse(int readFromSocket, struct linkedlist *headers,int16_t *statuscode)$/;"	f
+ReceiveBlock	transfer.c	/^void ReceiveBlock(int fd, void *dest, uint32_t totalsize)$/;"	f
+SERVER	response.c	12;"	d	file:
+STD_READ_ID	ChildMain.c	16;"	d	file:
+STD_WRITE_ID	ChildMain.c	17;"	d	file:
+SendResponceHeader	response.c	/^static void SendResponceHeader(int fd, struct linkedlist *headers){$/;"	f	file:
+SendResponseHeaders	response.c	/^void SendResponseHeaders(int fd, int HttpErrorCode, struct linkedlist *headers)$/;"	f
+SendStatusLine	response.c	/^static void SendStatusLine(int fd, int HttpErrorCode)$/;"	f	file:
+SplitFilePath	ChildMain.c	/^static void SplitFilePath(char *filename, char *path,char *filetitle)$/;"	f	file:
+StartReceiveBlock	transfer.c	/^uint32_t StartReceiveBlock(int fd)$/;"	f
+StartTimeQuantum	timequantum.c	/^void StartTimeQuantum(int seconds)$/;"	f
+StartTransmitBlock	transfer.c	/^void StartTransmitBlock(int fd, uint32_t totalsize)$/;"	f
+StartWebApp	ChildMain.c	/^static int StartWebApp(struct app *webapp, int fd[2], struct linkedlist *request_header, $/;"	f	file:
+TIMEQUANTUM_SEC	main.c	22;"	d	file:
+TRUE	response.c	9;"	d	file:
+TransmitBlock	transfer.c	/^void TransmitBlock(int fd, void *obj,size_t size)$/;"	f
+ValidateRequest	ChildMain.c	/^static int ValidateRequest(struct linkedlist *request_headers)$/;"	f	file:
+WELCOME_MSG	main.c	24;"	d	file:
+WriteRequest	transfer.c	/^void WriteRequest(int socketToWrite,struct linkedlist *request_header, $/;"	f
+WriteResponse	transfer.c	/^void WriteResponse(int writeToSocket, struct linkedlist *headers, int16_t statuscode)$/;"	f
+childDead	main.c	/^void childDead(int signal)$/;"	f
+childMain	ChildMain.c	/^void childMain(int clientfd)$/;"	f
+getRequest	ChildMain.c	/^static int getRequest(int clientfd, char **request, struct linkedlist *request_headers, struct linkedlist* query_strings)$/;"	f	file:
+main	main.c	/^int main()$/;"	f
+quantumExpired	timequantum.c	/^static unsigned int quantumExpired;$/;"	v	file:
+readPost	post.c	/^static int readPost(int fd, char *buffer, int length)$/;"	f	file:
+readString	transfer.c	/^static int readString(int socket, char *out)$/;"	f	file:
+recvKeyvaluesToApplication	transfer.c	/^void recvKeyvaluesToApplication(int readFromSocket, struct linkedlist *ll)$/;"	f
+sendKeyvaluesToApplication	transfer.c	/^void sendKeyvaluesToApplication(int writeToSocket, struct linkedlist *ll)$/;"	f
+timeQuantunExpirationHandler	timequantum.c	/^void timeQuantunExpirationHandler(int signal)$/;"	f
