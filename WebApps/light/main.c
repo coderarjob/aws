@@ -1,3 +1,5 @@
+/* Build with -D DUMMY_SERIAL to simulate a serial device */
+
 #include<stdio.h>
 #include<fcntl.h>
 #include<errno.h>
@@ -26,16 +28,20 @@ void TurnLedOff(int fd);
 #define PORT "/dev/ttyUSB0"
 #define SPEED 9600
 
+#ifdef DUMMY_SERIAL
+unsigned int g_dummyCurrentLedStatus;
+#endif
+
 int main()
 {
 	struct linkedlist *headers = CreateKeyValueList();
 	struct linkedlist *qString = CreateKeyValueList();
 	struct linkedlist *response = CreateKeyValueList();
 	struct linkedlist *postString = CreateKeyValueList();
-	int fd = InitializeSerialPort();
 	char *filename;
 	unsigned int CurrentLedStatus;
-	
+
+	int fd = InitializeSerialPort();
 	if (fd < 0)
 		return -1;
 	
@@ -72,6 +78,7 @@ int main()
 
 int InitializeSerialPort()
 {
+#ifndef DUMMY_SERIAL
 	int fd = open (PORT, O_RDWR | O_NOCTTY | O_SYNC);
 	if (fd < 0)
 	{
@@ -83,26 +90,40 @@ int InitializeSerialPort()
 	set_interface_attribs (fd, SPEED, 0);  // set speed to 115,200 bps, 8n1 (no parity)
 	set_blocking (fd, 0);                // set no blocking
 	return fd;
+#else
+    return 0;
+#endif //DUMMY_SERIAL
 }
 
 void TurnLedOff(int fd)
 {
+#ifndef DUMMY_SERIAL
 	write(fd,"F",1);
+#else
+    g_dummyCurrentLedStatus = 0;
+#endif
 }
 
 void TurnLedON(int fd)
 {
+#ifndef DUMMY_SERIAL
 	write(fd,"O",1);
+#else
+    g_dummyCurrentLedStatus = 1;
+#endif
 }
 
 unsigned int GetLedStatus(int fd)
 {
+#ifndef DUMMY_SERIAL
 	char c;
 	write(fd,"S",1);
 	read(fd,&c,1);
 	return c;
+#else
+    return g_dummyCurrentLedStatus;
+#endif
 }
-
 
 long GetFileSize(char *file)
 {
